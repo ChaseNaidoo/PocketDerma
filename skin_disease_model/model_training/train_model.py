@@ -208,4 +208,4 @@ for images, labels in test_ds.take(1):
 import os
 model_version=max([int(i) for i in os.listdir("../models") + [0]])+1
 model.save(f"../models/{model_version}")
-model.save("../plant_model.keras")
+model.save("../pocketderma_model.keras")
