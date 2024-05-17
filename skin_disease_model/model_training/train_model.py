@@ -11,7 +11,7 @@ EPOCHS=50
 
 # Load dataset from directory
 dataset = tf.keras.preprocessing.image_dataset_from_directory(
-    "datasets",
+    "dataset",
     seed = 123,
     shuffle=True,
     image_size=(IMAGE_SIZE,IMAGE_SIZE),
