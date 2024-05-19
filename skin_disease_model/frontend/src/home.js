@@ -3,7 +3,6 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
 import React from "react";
 import Card from "@material-ui/core/Card";
@@ -54,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "4em 1em 0 1em",
   },
   mainContainer: {
-    backgroundImage: `url(${image})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -65,8 +63,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     maxWidth: 400,
     height: 500,
-    backgroundColor: '#065c2a',
-    boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 30%) !important',
+    backgroundColor: '#142c53',
     borderRadius: '15px',
   },
   imageCardEmpty: {
@@ -131,12 +128,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appbar: {
-    background: '#065c55 ',
+    background: '#142c53',
     boxShadow: 'none',
-    color: '#dfd2c0'
+    color: 'white',
+    alignItems: 'center',
   },
   loader: {
-    color: '#065c55 !important',
+    color: '#142c53 !important',
   }
 }));
 export const ImageUpload = () => {
@@ -212,7 +210,6 @@ export const ImageUpload = () => {
             PocketDerma
           </Typography>
           <div className={classes.grow} />
-          <Avatar src={logo}></Avatar>
         </Toolbar>
       </AppBar>
       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
