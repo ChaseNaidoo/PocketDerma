@@ -18,3 +18,8 @@ code {
 .MuiDropzoneArea-text, .MuiDropzoneArea-icon {
     color: white !important;
 }
+
+.logo {
+    padding-top: 10px;
+    margin-bottom: 50px;
+}

@@ -12,6 +12,8 @@ import { DropzoneArea } from 'material-ui-dropzone';
 import { common } from '@material-ui/core/colors';
 import Clear from '@material-ui/icons/Clear';
 import axios from "axios";
+import logo from "./pocketderma_logo.png";
+import Avatar from "@material-ui/core/Avatar";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -210,6 +212,9 @@ export const ImageUpload = () => {
             PocketDerma
           </Typography>
           <div className={classes.grow} />
+          <div className="logo">
+          <Avatar src={logo}></Avatar>
+          </div>
         </Toolbar>
       </AppBar>
       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
