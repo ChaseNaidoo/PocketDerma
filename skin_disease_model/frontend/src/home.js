@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "4em 1em 0 1em",
   },
   mainContainer: {
+    backgroundColor: 'lightgrey',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -99,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '22px',
     backgroundColor: 'transparent !important',
     borderColor: 'transparent !important',
-    color: '#000000a6 !important',
+    color: 'white !important',
     fontWeight: 'bolder',
     padding: '1px 24px 1px 16px',
   },
@@ -107,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     backgroundColor: 'transparent !important',
     borderColor: 'transparent !important',
-    color: '#000000a6 !important',
+    color: 'white !important',
     fontWeight: 'bolder',
     padding: '1px 24px 1px 16px',
   },
@@ -123,7 +124,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   detail: {
-    backgroundColor: '#dfd2c0',
+    backgroundColor: '#142c53',
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
@@ -135,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   loader: {
-    color: '#142c53 !important',
+    color: 'lightblue !important',
   }
 }));
 export const ImageUpload = () => {

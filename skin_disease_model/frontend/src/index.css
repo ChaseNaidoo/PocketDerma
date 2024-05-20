@@ -24,3 +24,7 @@ code {
     height: 100px !important;
     padding-bottom: 10px;
 }
+
+.MuiTypography-h6 {
+    color: white;
+}
