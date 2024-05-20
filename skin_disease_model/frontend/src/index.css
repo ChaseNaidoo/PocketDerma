@@ -19,7 +19,8 @@ code {
     color: white !important;
 }
 
-.logo {
-    padding-top: 10px;
-    margin-bottom: 50px;
+.MuiAvatar-root {
+    width: 100% !important;
+    height: 100px !important;
+    padding-bottom: 10px;
 }

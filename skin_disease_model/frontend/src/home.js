@@ -132,7 +132,6 @@ const useStyles = makeStyles((theme) => ({
   appbar: {
     background: '#142c53',
     boxShadow: 'none',
-    color: 'white',
     alignItems: 'center',
   },
   loader: {
@@ -208,13 +207,8 @@ export const ImageUpload = () => {
     <React.Fragment>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            PocketDerma
-          </Typography>
           <div className={classes.grow} />
-          <div className="logo">
           <Avatar src={logo}></Avatar>
-          </div>
         </Toolbar>
       </AppBar>
       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
