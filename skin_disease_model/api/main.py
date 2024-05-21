@@ -9,6 +9,9 @@ from io import BytesIO
 from PIL import Image
 import tensorflow as tf
 
+# Import the authentication routes
+from auth.routes import router as auth_router
+
 # Create a FastAPI app
 app = FastAPI()
 
@@ -60,6 +63,9 @@ async def predict(
         'class': predicted_class,
         'confidence': float(confidence)
     }
+
+# Include the authentication router
+app.include_router(auth_router, prefix="/auth")
 
 # Run the FastAPI app using uvicorn
 if __name__ == "__main__":
