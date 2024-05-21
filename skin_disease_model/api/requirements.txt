@@ -1,9 +1,9 @@
-# tensorflow==2.9.0
+tensorflow==2.9.0
 fastapi
 uvicorn
 python-multipart
 pillow
-# tensorflow-serving-api==2.9.0
+tensorflow-serving-api==2.9.0
 matplotlib
 numpy
 Flask 
@@ -14,4 +14,8 @@ WTForms
 sqlalchemy 
 pydantic
 passlib
+Flask-Migrate
+Flask-Bcrypt
+Flask-JWT-Extended
+Flask-Mail
 
