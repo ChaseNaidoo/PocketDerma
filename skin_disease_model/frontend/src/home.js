@@ -3,7 +3,6 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
 import React from "react";
 import Card from "@material-ui/core/Card";
@@ -13,6 +12,8 @@ import { DropzoneArea } from 'material-ui-dropzone';
 import { common } from '@material-ui/core/colors';
 import Clear from '@material-ui/icons/Clear';
 import axios from "axios";
+import logo from "./pocketderma_logo.png";
+import Avatar from "@material-ui/core/Avatar";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "4em 1em 0 1em",
   },
   mainContainer: {
-    backgroundImage: `url(${image})`,
+    backgroundColor: 'lightgrey',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -65,8 +66,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     maxWidth: 400,
     height: 500,
-    backgroundColor: '#065c2a',
-    boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 30%) !important',
+    backgroundColor: '#142c53',
     borderRadius: '15px',
   },
   imageCardEmpty: {
@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '22px',
     backgroundColor: 'transparent !important',
     borderColor: 'transparent !important',
-    color: '#000000a6 !important',
+    color: 'white !important',
     fontWeight: 'bolder',
     padding: '1px 24px 1px 16px',
   },
@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     backgroundColor: 'transparent !important',
     borderColor: 'transparent !important',
-    color: '#000000a6 !important',
+    color: 'white !important',
     fontWeight: 'bolder',
     padding: '1px 24px 1px 16px',
   },
@@ -124,19 +124,19 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   detail: {
-    backgroundColor: '#dfd2c0',
+    backgroundColor: '#142c53',
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
   },
   appbar: {
-    background: '#065c55 ',
+    background: '#142c53',
     boxShadow: 'none',
-    color: '#dfd2c0'
+    alignItems: 'center',
   },
   loader: {
-    color: '#065c55 !important',
+    color: 'lightblue !important',
   }
 }));
 export const ImageUpload = () => {
@@ -208,9 +208,6 @@ export const ImageUpload = () => {
     <React.Fragment>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            PocketDerma
-          </Typography>
           <div className={classes.grow} />
           <Avatar src={logo}></Avatar>
         </Toolbar>

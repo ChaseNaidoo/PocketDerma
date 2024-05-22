@@ -13,8 +13,18 @@ code {
 }
 
 .MuiDropzoneArea-root {
-    background-color: #065c2a !important;
+    background-color: #142c53 !important;
 }
 .MuiDropzoneArea-text, .MuiDropzoneArea-icon {
     color: white !important;
+}
+
+.MuiAvatar-root {
+    width: 100% !important;
+    height: 100px !important;
+    padding-bottom: 10px;
+}
+
+.MuiTypography-h6 {
+    color: white;
 }
