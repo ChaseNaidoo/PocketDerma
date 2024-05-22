@@ -24,7 +24,7 @@ const Login = () => {
             });
             localStorage.setItem('token', response.data.access_token);
             console.log('Login successful');
-            navigate('/'); // Use navigate instead of history
+            navigate('/');
         } catch (error) {
             setError('Invalid username or password');
             console.error('Login failed', error);
@@ -60,7 +60,7 @@ const Login = () => {
                 </button>
                 {error && <div>{error}</div>}
             </form>
-            <p>Don't have an account? <Link to="/signup">Signup</Link></p> {/* Add this line */}
+            <p>Don't have an account? <Link to="/signup">Signup</Link></p>
         </div>
     );
 };
