@@ -19,12 +19,12 @@ const Login = () => {
         setLoading(true);
         try {
             const response = await axios.post('http://localhost:8000/login', {
-                username,
+                email: username,
                 password,
             });
             localStorage.setItem('token', response.data.access_token);
             console.log('Login successful');
-            navigate('/');
+            navigate('/imageupload');
         } catch (error) {
             setError('Invalid username or password');
             console.error('Login failed', error);

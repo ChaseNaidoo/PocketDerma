@@ -24,7 +24,7 @@ const Signup = () => {
     setSuccess('');
 
     try {
-      await axios.post('http://localhost:8000/signup', formData); // Removed response variable
+      await axios.post('http://localhost:8000/signup', formData);
       setSuccess('Signup successful!');
     } catch (err) {
       setError('Signup failed. Please try again.');

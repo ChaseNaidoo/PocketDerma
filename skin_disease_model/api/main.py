@@ -1,21 +1,34 @@
 #!/usr/bin/env python3
 
 # Import necessary libraries
-from fastapi import FastAPI, File, UploadFile, Depends, HTTPException
+from fastapi import FastAPI, File, UploadFile, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import numpy as np
 from io import BytesIO
 from PIL import Image
 import tensorflow as tf
-
-# Import the user registration related modules
-from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine
 import models
 import schemas
-import bcrypt
+from utils import get_hashed_password, create_access_token, create_refresh_token, settings
+from auth_bearer import JWTBearer
+from models import User
+from utils import verify_password
+import jwt
+from datetime import datetime
+from functools import wraps
+from jwt import PyJWTError
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get JWT secret key from environment variables
+JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
+WT_REFRESH_SECRET_KEY = os.getenv('JWT_REFRESH_SECRET_KEY')
 
 # Create a FastAPI app
 app = FastAPI()
@@ -47,16 +60,9 @@ def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
     return image
 
-# Function to hash the user's password
-def get_hashed_password(password: str) -> str:
-    """Generate a hashed version of the password."""
-    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-
 # Define a route for the prediction endpoint
 @app.post("/predict")
-async def predict(
-    file: UploadFile = File(...)
-):
+async def predict(file: UploadFile = File(...)):
     """Predict the class of a plant disease from an uploaded image."""
     image = read_file_as_image(await file.read())
     img_batch = np.expand_dims(image, 0)
@@ -98,6 +104,87 @@ def register_user(user: schemas.UserCreate, session: Session = Depends(get_sessi
     session.refresh(new_user)
 
     return {"message": "User created successfully"}
+
+@app.post('/login', response_model=schemas.TokenSchema)
+def login(request: schemas.requestdetails, db: Session = Depends(get_session)):
+    user = db.query(User).filter(User.email == request.email).first()
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Incorrect email")
+    hashed_pass = user.password
+    if not verify_password(request.password, hashed_pass):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Incorrect password"
+        )
+    
+    access=create_access_token(user.id)
+    refresh = create_refresh_token(user.id)
+
+    token_db = models.TokenTable(user_id=user.id,  access_token=access,  refresh_token=refresh, status=True)
+    db.add(token_db)
+    db.commit()
+    db.refresh(token_db)
+    return {
+        "access_token": access,
+        "refresh_token": refresh,
+    }
+
+@app.get('/getusers')
+def getusers( dependencies=Depends(JWTBearer()),session: Session = Depends(get_session)):
+    user = session.query(models.User).all()
+    return user
+
+@app.post('/change-password')
+def change_password(request: schemas.changepassword, db: Session = Depends(get_session)):
+    user = db.query(models.User).filter(models.User.email == request.email).first()
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="User not found")
+    
+    if not verify_password(request.old_password, user.password):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid old password")
+    
+    encrypted_password = get_hashed_password(request.new_password)
+    user.password = encrypted_password
+    db.commit()
+    
+    return {"message": "Password changed successfully"}
+
+@app.post('/logout')
+def logout(dependencies=Depends(JWTBearer()), db: Session = Depends(get_session)):
+    token=dependencies
+    payload = jwt.decode(token, JWT_SECRET_KEY, ALGORITHM)
+    user_id = payload['sub']
+    token_record = db.query(models.TokenTable).all()
+    info=[]
+    for record in token_record :
+        print("record",record)
+        if (datetime.utcnow() - record.created_date).days >1:
+            info.append(record.user_id)
+    if info:
+        existing_token = db.query(models.TokenTable).where(TokenTable.user_id.in_(info)).delete()
+        db.commit()
+        
+    existing_token = db.query(models.TokenTable).filter(models.TokenTable.user_id == user_id, models.TokenTable.access_token==token).first()
+    if existing_token:
+        existing_token.status=False
+        db.add(existing_token)
+        db.commit()
+        db.refresh(existing_token)
+    return {"message":"Logout Successfully"} 
+
+def token_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+    
+        payload = jwt.decode(kwargs['dependencies'], JWT_SECRET_KEY, ALGORITHM)
+        user_id = payload['sub']
+        data= kwargs['session'].query(models.TokenTable).filter_by(user_id=user_id, access_token=kwargs['dependencies'], status=True).first()
+        if data:
+            return func(kwargs['dependencies'],kwargs['session'])
+        else:
+            return {'msg': "Token blocked"}
+        
+    return wrapper
 
 models.Base.metadata.create_all(bind=engine)
 
