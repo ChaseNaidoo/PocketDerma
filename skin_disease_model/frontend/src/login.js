@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault();
         setError('');
         if (!username || !password) {
-            setError('Please enter username and password');
+            setError('Please enter email and password');
             return;
         }
         setLoading(true);
@@ -38,7 +38,7 @@ const Login = () => {
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <label>
-                    Username:
+                    Email:
                     <input
                         type="text"
                         value={username}
