@@ -11,10 +11,11 @@ body {
     padding-right: 60px;
 }
 
-.login-container {
+.signup-container {
+    width: 350px;
     max-width: 600px;
     margin: 0;
-    padding: 110px;
+    padding: 100px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -22,20 +23,20 @@ body {
     background-color: #f9f9f9;
 }
 
-.login-container h2 {
-    margin-bottom: 60px;
-    font-size: 2rem;
+.signup-container h2 {
+    margin-bottom: 30px;
     margin-top: -40px;
+    font-size: 2rem;
     color: #142c53;
 }
 
-.login-container label {
+.signup-container label {
     display: block;
     margin: 10px 0 5px;
     color: #142c53;
 }
 
-.login-container input {
+.signup-container input {
     width: 100%;
     padding: 10px;
     margin: 10px 0px 20px;
@@ -43,11 +44,11 @@ body {
     border-radius: 5px;
 }
 
-.login-container button {
+.signup-container button {
     width: 100%;
-    padding: 10px;
-    margin-left: 8px;
-    background-color: #007bff;
+    padding: 12px;
+    margin-left: 10px;
+    background-color: #28a745;
     border: none;
     color: white;
     font-size: 16px;
@@ -55,17 +56,23 @@ body {
     cursor: pointer;
 }
 
-.login-container button:disabled {
+.signup-container button:disabled {
     background-color: #ccc;
 }
 
-.login-container .error {
+.signup-container .error {
     color: red;
-    margin-top: 10px;
+    margin-top: 20px; /* Increase the margin */
+    font-size: 1rem; /* Increase the font size */
 }
 
-.login-container p {
-    margin-top: 20px;
-    margin-left: 14px;
-    color: #142c53;
+.signup-container .success {
+    color: green;
+    margin-top: 20px; /* Increase the margin */
+    font-size: 1rem; /* Increase the font size */
+}
+
+.signup-container p {
+    margin-top: 30px; /* Increase the margin */
+    font-size: 1rem; /* Increase the font size */
 }
