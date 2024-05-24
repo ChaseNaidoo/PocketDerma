@@ -1,7 +1,20 @@
+body {
+    background: url('./login_background.png') no-repeat center center fixed;
+    background-size: 90% 100%;
+    background-color: #142c53;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-right: 60px;
+}
+
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 600px;
+    margin: 0;
+    padding: 110px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -10,25 +23,31 @@
 }
 
 .login-container h2 {
-    margin-bottom: 20px;
+    margin-bottom: 60px;
+    font-size: 2rem;
+    margin-top: -40px;
+    color: #142c53;
 }
 
 .login-container label {
     display: block;
     margin: 10px 0 5px;
+    color: #142c53;
+
 }
 
 .login-container input {
-    width: 90%;
+    width: 100%;
     padding: 10px;
-    margin: 5px 0 20px;
+    margin: 10px 0px 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 .login-container button {
-    width: 95%;
+    width: 100%;
     padding: 10px;
+    margin-left: 8px;
     background-color: #007bff;
     border: none;
     color: white;
@@ -48,4 +67,6 @@
 
 .login-container p {
     margin-top: 20px;
+    margin-left: 14px;
+    color: #142c53;
 }
