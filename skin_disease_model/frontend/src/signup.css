@@ -2,19 +2,18 @@ body {
     background: url('./login_background.png') no-repeat center center fixed;
     background-size: 90% 100%;
     background-color: #142c53;
-    display: flex;
     justify-content: flex-end;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    padding-right: 60px;
 }
 
 .signup-container {
     width: 350px;
     max-width: 600px;
-    margin: 0;
+    margin-left: 62%;
+    margin-top: 5%;
     padding: 100px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -24,7 +23,7 @@ body {
 }
 
 .signup-container h2 {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     margin-top: -40px;
     font-size: 2rem;
     color: #142c53;

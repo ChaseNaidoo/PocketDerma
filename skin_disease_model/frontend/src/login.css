@@ -2,24 +2,24 @@ body {
     background: url('./login_background.png') no-repeat center center fixed;
     background-size: 90% 100%;
     background-color: #142c53;
-    display: flex;
     justify-content: flex-end;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    padding-right: 60px;
 }
 
 .login-container {
+    width: 350px;
     max-width: 600px;
-    margin: 0;
-    padding: 110px;
+    padding: 100px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #f9f9f9;
+    margin-left: 62%;
+    margin-top: 5%;
 }
 
 .login-container h2 {
