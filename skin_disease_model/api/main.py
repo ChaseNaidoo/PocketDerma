@@ -29,6 +29,7 @@ load_dotenv()
 # Get JWT secret key from environment variables
 JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
 JWT_REFRESH_SECRET_KEY = os.getenv('JWT_REFRESH_SECRET_KEY')
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 # Create a FastAPI app
 app = FastAPI()
