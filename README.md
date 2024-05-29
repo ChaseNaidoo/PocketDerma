@@ -1,6 +1,7 @@
-Healthcare Access Application
-Overview
-The Healthcare Access Application addresses the challenge of providing an easy and effective way for individuals to determine the health of their skin
+PocketDerma
+![WhatsApp Image 2024-05-24 at 17 31 54](https://github.com/ChaseNaidoo/PocketDerma/assets/30260269/e34490b8-a673-4217-99cf-cab0ca475c8a)
+
+This Healthcare Access Application addresses the challenge of providing an easy and effective way for individuals to determine the health of their skin
 through AI-driven disease detection. This web application allows users to take pictures of various skin diseases and match them with diseases in our
 database using AI components, enabling users to get a diagnosis without much hassle.
 
@@ -20,10 +21,10 @@ Usage
 3.Open your browser and navigate to http://localhost:3000
 4.In another terminal, cd plant_disease_model/api
 5.Run ./main.py
-6.To train a custom model, modify training/inbloom_datasets to include your datasets
+6.To train a custom model, modify training_model/datasets to include your datasets
 7.Modify main.py in plant_disease_model/api to include class names
 8.Modify training_model.py in training to include the correct number of classes
-9.cd plant_disease_model/training
+9.cd skin_disease_model/training
 10.Run ./training_model.py
 
 
