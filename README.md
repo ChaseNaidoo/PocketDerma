@@ -42,3 +42,11 @@ To install and set up the project, follow these steps:
 ### Processed Image
 ![Screenshot 2024-05-20 at 17-21-30 PocketDerma](https://github.com/ChaseNaidoo/PocketDerma/assets/125469506/545acb3f-69b7-4631-b72e-4e7ea65befb7)
 
+## Authors
+- Cameron Chase Naidoo
+- Alice Musukwa
+- Gold Israel
+
+## Licensing
+This project is licensed under the MIT License.
+
