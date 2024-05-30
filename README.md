@@ -28,4 +28,11 @@ Usage
 9.cd skin_disease_model/training
 10.Run ./training_model.py
 
+Screenshots
+![WhatsApp Image 2024-05-24 at 15 32 41](https://github.com/ChaseNaidoo/PocketDerma/assets/30260269/0d027c21-6148-4c41-b9bb-daadd88624ae)
+
+![WhatsApp Image 2024-05-24 at 17 31 54](https://github.com/ChaseNaidoo/PocketDerma/assets/30260269/84d78ea8-53de-4801-bf77-7c6550d24237)
+
+
+
 
