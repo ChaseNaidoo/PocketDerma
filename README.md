@@ -13,20 +13,21 @@ with diseases in our database using AI components. This enables users to get a d
 
 ## Installation
 To install and set up the project, follow these steps:
-1.Clone the repository: git clone https://github.com/ChaseNaidoo/PocketDerma.git
-2.Install dependencies: npm install
+    1. Clone the repository: git clone https://github.com/ChaseNaidoo/PocketDerma.git
+    2. Install dependencies: npm install
 
 ## Usage
-    1.cd skin_disease_model/frontend
-    2.Start the server: npm run start
-    3.Open your browser and navigate to http://localhost:3000
-    4.In another terminal, cd skin_disease_model/api
-    5.Run ./main.py
-    6.To train a custom model, modify training_model/datasets to include your datasets
-    7.Modify main.py in skin_disease_model/api to include class names
-    8.Modify training_model.py in training to include the correct number of classes
-    9.cd skin_disease_model/training
-    10.Run ./training_model.py
+    1. cd skin_disease_model/frontend
+    2. Start the server: npm run start
+    3. Open your browser and navigate to http://localhost:3000
+    4. In another terminal, cd skin_disease_model/api
+    5. Run ./main.py
+    6. To train a custom model, modify training_model/datasets to include your datasets
+    7. Modify main.py in skin_disease_model/api to include class names
+    8. Modify training_model.py in training to include the correct number of classes
+    9. cd skin_disease_model/training
+    10. Run ./training_model.py
+    11. MySQL should be running in another terminal to create an account and login
 
 ## Screenshots
 ### Login Page
