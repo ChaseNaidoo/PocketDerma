@@ -13,8 +13,8 @@ with diseases in our database using AI components. This enables users to get a d
 
 ## Installation
 To install and set up the project, follow these steps:
-    1. Clone the repository: git clone https://github.com/ChaseNaidoo/PocketDerma.git
-    2. Install dependencies: npm install
+- Clone the repository: git clone https://github.com/ChaseNaidoo/PocketDerma.git
+- Install dependencies: npm install
 
 ## Usage
     1. cd skin_disease_model/frontend
