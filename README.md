@@ -27,7 +27,7 @@ To install and set up the project, follow these steps:
     8. Modify training_model.py in training to include the correct number of classes
     9. cd skin_disease_model/training
     10. Run ./training_model.py
-    11. MySQL should be running in another terminal to create an account and login
+    11. Use the command 'mysql -u root -p' to run the MySQL database in another terminal to be able to use the api
 
 ## Screenshots
 ### Login Page
