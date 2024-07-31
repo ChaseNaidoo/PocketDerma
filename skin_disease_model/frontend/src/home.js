@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
   gridContainer: {
     justifyContent: "center",
-    padding: "4em 1em 0 1em",
+    padding: "0em 1em 0 1em",
   },
   mainContainer: {
     backgroundColor: 'lightgrey',
